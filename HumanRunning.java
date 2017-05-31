@@ -22,7 +22,7 @@ public class HumanRunning {
 		
 		System.out.println("Welcome to ModernHero!");
 		seperator();
-		System.out.println("Enter your username... if you do not have one please enter 'newuser'");
+		System.out.println("Enter your username:\nIf you do not have one please enter 'newuser'");
 		String attemptUser = kb.nextLine();
 		int count = 1;
 		for (int usercount = count; usercount < 30; usercount--){
@@ -30,7 +30,7 @@ public class HumanRunning {
 			case "darien27":
 				attemptUser = username[usercount];
 					if(attemptUser == username[usercount]){
-						System.out.println("Welcome " + name + ", please enter your password.");
+						System.out.println("Welcome, please enter your password.");
 						newuser = false;
 						break;
 					}//if 
@@ -43,7 +43,7 @@ public class HumanRunning {
 			  		
 				if (attemptUser == username[usercount]){
 					System.out.println("New User Added:" + username[usercount]);
-					System.out.println("Welcome " + name+ "." + " Please enter 0000 to register your password.");
+					System.out.println("Welcome, please enter 0000 to register your password.");
 					newuser = true;
 					break;
 				}//if end	
