@@ -1,7 +1,5 @@
 package Review326;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @SuppressWarnings("unused")
@@ -9,39 +7,16 @@ public class HumanRunning {
 
 	public static void seperator(){
 		System.out.println("--------------------");
-	}
+	} //seperator end
 	public static void main(String[] args){
 		
 		Scanner kb = new Scanner(System.in);
-		DateFormat df = new SimpleDateFormat("HH:mm:ss");
-	    Date dateobj = new Date();
-		
-	    //newHUMAN
-		Human human1;
-		
-		System.out.println("Enter your name...");
-		String name = kb.nextLine();
-		/*System.out.println("Enter your birth month...");
-		String birthday = kb.next();
-		System.out.println("Enter your birthyear...");
-		int birthyear = kb.nextInt();
-		System.out.println("Enter your age...");
-		int age = kb.nextInt();
-		System.out.println("Enter your weight...");
-		double weight = kb.nextDouble();
-		System.out.println("Enter your horoscope...");
-		String horoscope = kb.next(); */
-	
-		human1 = new Human(name, null, 1, 1, 1, null);
-		
-		//human1.PrintInfo();
-		
+		boolean newuser;
 		String[] username = new String[100];
 		int[] password = new int[100];
 		
 		username[1] = "darien27";
 		password[1] = 4011;
-		
 		
 		int none = 1;
 		
@@ -54,85 +29,64 @@ public class HumanRunning {
 			switch(attemptUser){
 			case "darien27":
 				attemptUser = username[usercount];
-				break;
-			
+					if(attemptUser == username[usercount]){
+						System.out.println("Welcome " + name + ", please enter your password.");
+						newuser = false;
+						break;
+					}//if 
+				}//darien27 end
+			switch(attemptUser){
 			case "newuser":
 				System.out.println("Enter your desired username!");
-				boolean gate = true;
-				if(gate == true){
 				attemptUser = kb.nextLine();
 				attemptUser = username[usercount];
-				
-				if(attemptUser == username[usercount]){
-					attemptUser = username[usercount++];
-					
-					System.out.println("New User Added:" + username[usercount++]);
-					
-					break;
-				}
-				else
+			  		
+				if (attemptUser == username[usercount]){
+					System.out.println("New User Added:" + username[usercount]);
 					System.out.println("Welcome " + name+ "." + " Please enter 0000 to register your password.");
+					newuser = true;
 					break;
-				}	
-			}
-			if(attemptUser == username[usercount]){
-				
-				System.out.println("Welcome " + name + ", please enter your password.");
-			
-				break;
-			} //if
-			else {
-				System.err.println("Outsider Entry Recorded!");
-				attemptUser = username[usercount];
-				System.out.println("PRINT OF USERNAME:" + username[usercount]);
-				if(attemptUser == username[usercount]){
-					break;
-				}
-				}
-			
+				}//if end	
+			}//newuser end
 	} //for
-		boolean newuser = false;
 		
-		while(!newuser==true){
+		if (newuser==true){
 		int attemptPass = kb.nextInt();
 		for(int passcount = count; passcount < 30; passcount++){
 				switch(attemptPass){
-					case 1:
+					case 4011:
 						attemptPass = password[passcount];
+						System.out.println("Password correct, welcome!");
 						passcount++;
 						break;
-						
+				}//case1 end
+				switch(attemptPass){	
 					case 0000:
 						System.out.println("Enter new password below");
-						boolean gate1 = true;
-						if(gate1 == true){
 						attemptPass = kb.nextInt();
-						attemptPass = password[passcount++];
+						attemptPass = password[passcount];
 						passcount++;
-						if(attemptPass == password[passcount++]){
+						if(attemptPass == password[passcount]){
 							System.out.println("Password saved!");
 							break;
-					}
-						}
-				}
+					}// if end
+						}//switch end
 				if(attemptPass == password[passcount]){	
-					System.out.println("Password correct, how can I assist you today " + name + "?");
+					System.out.println("How can I assist you today ?");
+					kb.close();
 					break;
-				} //if
+				} //if end
 				else { 
 					System.err.println("That is not the password associated with this user!");
 					attemptPass = kb.nextInt();
 				if(attemptPass == password[passcount]){
+					kb.close();
 					break;
-				}
-				}
-				break;
-		} //for
-		break;} 
-		kb.close();
-		}
-		
-		
+				}//if end
+				}//else end
+		}//for loop
+		}//newuser end
+	}//humanRunning.java
 		
 	/*	while(username[1].equals(attemptUser) && !password[1].equals(attemptPass)) {
 			System.err.println("Incorrect credentials, please try again!");
@@ -146,6 +100,4 @@ public class HumanRunning {
 		kb.nextLine();
 		kb.close();
 		*/
-	
-	}
 
